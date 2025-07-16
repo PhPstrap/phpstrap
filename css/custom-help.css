@@ -1,0 +1,191 @@
+<!-- Additional CSS for enhanced help center -->
+
+    /* Table of Contents Styles */
+    .toc-container {
+        position: sticky;
+        top: 20px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+    
+    .toc-link {
+        display: block;
+        padding: 0.5rem 0;
+        color: var(--bs-secondary);
+        text-decoration: none;
+        border-left: 2px solid transparent;
+        padding-left: 1rem;
+        transition: all 0.2s ease;
+    }
+    
+    .toc-link:hover {
+        color: var(--bs-primary);
+        border-left-color: var(--bs-primary);
+    }
+    
+    .toc-link.active {
+        color: var(--bs-primary);
+        border-left-color: var(--bs-primary);
+        font-weight: 500;
+    }
+    
+    /* Section card styling */
+    .content-card {
+        border-radius: 8px;
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+    
+    .content-card:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+    
+    .content-card-header {
+        background-color: rgba(var(--bs-primary-rgb), 0.05);
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(var(--bs-primary-rgb), 0.1);
+    }
+    
+    .content-card-body {
+        padding: 1.5rem;
+    }
+    
+    /* FAQ Enhancement */
+    .accordion-button {
+        font-weight: 500;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: rgba(var(--bs-primary-rgb), 0.1);
+        color: var(--bs-primary);
+    }
+    
+    .accordion-button::before {
+        content: "\f059"; /* Question mark icon */
+        font-family: "Font Awesome 5 Free";
+        margin-right: 10px;
+        color: var(--bs-primary);
+    }
+    
+    /* Dark mode enhancements */
+    [data-bs-theme="dark"] .content-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    [data-bs-theme="dark"] .content-card-header {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Dark mode accordion improvements */
+    [data-bs-theme="dark"] .accordion-button {
+        color: var(--bs-light);
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    [data-bs-theme="dark"] .accordion-button:not(.collapsed) {
+        color: var(--bs-primary);
+        background-color: rgba(var(--bs-primary-rgb), 0.2);
+    }
+    
+    [data-bs-theme="dark"] .accordion-button::after {
+        filter: invert(1);
+    }
+    
+    [data-bs-theme="dark"] .accordion-item {
+        background-color: transparent;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Feedback widget */
+    .feedback-container {
+        background-color: rgba(var(--bs-primary-rgb), 0.05);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        margin: 2rem 0;
+    }
+    
+    .feedback-btn {
+        margin: 0 0.5rem;
+        transition: all 0.2s;
+    }
+    
+    .feedback-btn:hover {
+        transform: scale(1.05);
+    }
+
+  /* FAQ Dark Mode Compatibility */
+  .dark-mode .accordion-item {
+    background-color: #2b3035;
+    border-color: rgba(255, 255, 255, 0.125);
+  }
+  
+  .dark-mode .accordion-button {
+    background-color: #343a40;
+    color: #f8f9fa;
+  }
+  
+  .dark-mode .accordion-button:not(.collapsed) {
+    background-color: #495057;
+    color: #fff;
+  }
+  
+  .dark-mode .accordion-body {
+    background-color: #2b3035;
+    color: #e9ecef;
+  }
+  
+  /* Fix the accordion arrow indicator in dark mode */
+  .dark-mode .accordion-button::after {
+    filter: invert(1);
+  }
+  
+  /* Fix focus state */
+  .dark-mode .accordion-button:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Fix hover state */
+  .dark-mode .accordion-button:hover:not(.collapsed) {
+    background-color: #4b5359;
+  }
+  
+  .dark-mode .accordion-button:hover {
+    background-color: #3b4147;
+  }
+  
+  /* Make sure the content cards work with dark mode */
+  .dark-mode .content-card {
+    background-color: #2b3035;
+    border-color: rgba(255, 255, 255, 0.125);
+  }
+  
+  .dark-mode .content-card-header {
+    background-color: #343a40;
+  }
+  
+  .dark-mode .content-card-body {
+    color: #e9ecef;
+  }
+  
+  /* Fix table of contents */
+  .dark-mode .toc-container > div {
+    background-color: #2b3035;
+    border-color: rgba(255, 255, 255, 0.125);
+  }
+  
+  .dark-mode .toc-link {
+    color: #adb5bd;
+  }
+  
+  .dark-mode .toc-link:hover,
+  .dark-mode .toc-link.active {
+    color: #f8f9fa;
+  }
