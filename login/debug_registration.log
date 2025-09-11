@@ -1,0 +1,132 @@
+2025-09-10 23:50:09 - Registration file started loading
+2025-09-10 23:50:09 - Config files loaded
+2025-09-10 23:50:09 - redirect() function exists
+2025-09-10 23:50:09 - isLoggedIn() function exists
+2025-09-10 23:50:09 - isLoggedIn() returned: false
+2025-09-10 23:50:09 - Session started
+2025-09-10 23:50:09 - Login check completed, proceeding with registration
+2025-09-10 23:50:09 - Starting direct settings retrieval
+2025-09-10 23:50:09 - Trying query 0: SELECT `key`, `value` FROM settings
+2025-09-10 23:50:09 - Query 0 returned 100 rows
+2025-09-10 23:50:09 - First row structure: {"key":"PhPstrap_version","value":"1.0.0"}
+2025-09-10 23:50:09 - Set site_name = PhPstrap
+2025-09-10 23:50:09 - Set site_url = https://pzvt.com
+2025-09-10 23:50:09 - Set registration_enabled = 1
+2025-09-10 23:50:09 - Set email_verification_required = 1
+2025-09-10 23:50:09 - Set admin_approval_required = 0
+2025-09-10 23:50:09 - Set default_user_credits = 0.00
+2025-09-10 23:50:09 - Set default_user_role = user
+2025-09-10 23:50:09 - Set auto_approve_users = 1
+2025-09-10 23:50:09 - Set password_min_length = 8
+2025-09-10 23:50:09 - Set password_require_uppercase = 0
+2025-09-10 23:50:09 - Set password_require_lowercase = 0
+2025-09-10 23:50:09 - Set password_require_numbers = 0
+2025-09-10 23:50:09 - Set password_require_symbols = 0
+2025-09-10 23:50:09 - Set affiliate_program_enabled = 1
+2025-09-10 23:50:09 - Set credit_per_signup = 10.00
+2025-09-10 23:50:09 - Set invite_only_mode = 1
+2025-09-10 23:50:09 - Set site_icon = fas fa-home
+2025-09-10 23:50:09 - Set theme_color = #007bff
+2025-09-10 23:50:09 - Set secondary_color = #6c757d
+2025-09-10 23:50:09 - getSetting function exists, trying it
+2025-09-10 23:50:09 - getSetting('registration_enabled') = '1'
+2025-09-10 23:50:09 - getSetting('invite_only_mode') = '1'
+2025-09-10 23:50:09 - Final settings: {"registration_enabled":"1","invite_only_mode":"1","email_verification_required":"1","admin_approval_required":"0","auto_approve_users":"1","default_user_credits":"0.00","default_user_role":"user","password_min_length":"8","password_require_uppercase":"0","password_require_lowercase":"0","password_require_numbers":"0","password_require_symbols":"0","affiliate_program_enabled":"1","credit_per_signup":"10.00","site_name":"PhPstrap","site_url":"https:\/\/pzvt.com","theme_color":"#007bff","secondary_color":"#6c757d","site_icon":"fas fa-home"}
+2025-09-10 23:50:09 - Settings loaded. registration_enabled = '1'
+2025-09-10 23:50:09 - Starting access control checks
+2025-09-10 23:50:09 - registration_enabled value: '1' (type: string)
+2025-09-10 23:50:09 - Registration is ENABLED
+2025-09-10 23:50:09 - invite_only_mode value: '1' (type: string)
+2025-09-10 23:50:09 - Invite-only mode is ENABLED
+2025-09-10 23:50:09 - No invite code provided, denying access
+2025-09-10 23:50:09 - Final access decision: access_denied = true
+2025-09-10 23:50:09 - Access denied with message: 'Registration is currently invite-only. You need a valid invitation code to register.'
+2025-09-10 23:50:09 - REDIRECTING to login/?registration_disabled=1
+2025-09-10 23:50:17 - Registration file started loading
+2025-09-10 23:50:17 - Config files loaded
+2025-09-10 23:50:17 - redirect() function exists
+2025-09-10 23:50:17 - isLoggedIn() function exists
+2025-09-10 23:50:17 - isLoggedIn() returned: false
+2025-09-10 23:50:17 - Session started
+2025-09-10 23:50:17 - Login check completed, proceeding with registration
+2025-09-10 23:50:17 - Starting direct settings retrieval
+2025-09-10 23:50:17 - Trying query 0: SELECT `key`, `value` FROM settings
+2025-09-10 23:50:17 - Query 0 returned 100 rows
+2025-09-10 23:50:17 - First row structure: {"key":"PhPstrap_version","value":"1.0.0"}
+2025-09-10 23:50:17 - Set site_name = PhPstrap
+2025-09-10 23:50:17 - Set site_url = https://pzvt.com
+2025-09-10 23:50:17 - Set registration_enabled = 1
+2025-09-10 23:50:17 - Set email_verification_required = 1
+2025-09-10 23:50:17 - Set admin_approval_required = 0
+2025-09-10 23:50:17 - Set default_user_credits = 0.00
+2025-09-10 23:50:17 - Set default_user_role = user
+2025-09-10 23:50:17 - Set auto_approve_users = 1
+2025-09-10 23:50:17 - Set password_min_length = 8
+2025-09-10 23:50:17 - Set password_require_uppercase = 0
+2025-09-10 23:50:17 - Set password_require_lowercase = 0
+2025-09-10 23:50:17 - Set password_require_numbers = 0
+2025-09-10 23:50:17 - Set password_require_symbols = 0
+2025-09-10 23:50:17 - Set affiliate_program_enabled = 1
+2025-09-10 23:50:17 - Set credit_per_signup = 10.00
+2025-09-10 23:50:17 - Set invite_only_mode = 1
+2025-09-10 23:50:17 - Set site_icon = fas fa-home
+2025-09-10 23:50:17 - Set theme_color = #007bff
+2025-09-10 23:50:17 - Set secondary_color = #6c757d
+2025-09-10 23:50:17 - getSetting function exists, trying it
+2025-09-10 23:50:17 - getSetting('registration_enabled') = '1'
+2025-09-10 23:50:17 - getSetting('invite_only_mode') = '1'
+2025-09-10 23:50:17 - Final settings: {"registration_enabled":"1","invite_only_mode":"1","email_verification_required":"1","admin_approval_required":"0","auto_approve_users":"1","default_user_credits":"0.00","default_user_role":"user","password_min_length":"8","password_require_uppercase":"0","password_require_lowercase":"0","password_require_numbers":"0","password_require_symbols":"0","affiliate_program_enabled":"1","credit_per_signup":"10.00","site_name":"PhPstrap","site_url":"https:\/\/pzvt.com","theme_color":"#007bff","secondary_color":"#6c757d","site_icon":"fas fa-home"}
+2025-09-10 23:50:17 - Settings loaded. registration_enabled = '1'
+2025-09-10 23:50:17 - Starting access control checks
+2025-09-10 23:50:17 - registration_enabled value: '1' (type: string)
+2025-09-10 23:50:17 - Registration is ENABLED
+2025-09-10 23:50:17 - invite_only_mode value: '1' (type: string)
+2025-09-10 23:50:17 - Invite-only mode is ENABLED
+2025-09-10 23:50:17 - No invite code provided, denying access
+2025-09-10 23:50:17 - Final access decision: access_denied = true
+2025-09-10 23:50:17 - Access denied with message: 'Registration is currently invite-only. You need a valid invitation code to register.'
+2025-09-10 23:50:17 - REDIRECTING to login/?registration_disabled=1
+2025-09-10 23:50:33 - Registration file started loading
+2025-09-10 23:50:33 - Config files loaded
+2025-09-10 23:50:33 - redirect() function exists
+2025-09-10 23:50:33 - isLoggedIn() function exists
+2025-09-10 23:50:33 - isLoggedIn() returned: false
+2025-09-10 23:50:33 - Session started
+2025-09-10 23:50:33 - Login check completed, proceeding with registration
+2025-09-10 23:50:33 - Starting direct settings retrieval
+2025-09-10 23:50:33 - Trying query 0: SELECT `key`, `value` FROM settings
+2025-09-10 23:50:33 - Query 0 returned 100 rows
+2025-09-10 23:50:33 - First row structure: {"key":"PhPstrap_version","value":"1.0.0"}
+2025-09-10 23:50:33 - Set site_name = PhPstrap
+2025-09-10 23:50:33 - Set site_url = https://pzvt.com
+2025-09-10 23:50:33 - Set registration_enabled = 1
+2025-09-10 23:50:33 - Set email_verification_required = 1
+2025-09-10 23:50:33 - Set admin_approval_required = 0
+2025-09-10 23:50:33 - Set default_user_credits = 0.00
+2025-09-10 23:50:33 - Set default_user_role = user
+2025-09-10 23:50:33 - Set auto_approve_users = 1
+2025-09-10 23:50:33 - Set password_min_length = 8
+2025-09-10 23:50:33 - Set password_require_uppercase = 0
+2025-09-10 23:50:33 - Set password_require_lowercase = 0
+2025-09-10 23:50:33 - Set password_require_numbers = 0
+2025-09-10 23:50:33 - Set password_require_symbols = 0
+2025-09-10 23:50:33 - Set affiliate_program_enabled = 1
+2025-09-10 23:50:33 - Set credit_per_signup = 10.00
+2025-09-10 23:50:33 - Set invite_only_mode = 1
+2025-09-10 23:50:33 - Set site_icon = fas fa-home
+2025-09-10 23:50:33 - Set theme_color = #007bff
+2025-09-10 23:50:33 - Set secondary_color = #6c757d
+2025-09-10 23:50:33 - getSetting function exists, trying it
+2025-09-10 23:50:33 - getSetting('registration_enabled') = '1'
+2025-09-10 23:50:33 - getSetting('invite_only_mode') = '1'
+2025-09-10 23:50:33 - Final settings: {"registration_enabled":"1","invite_only_mode":"1","email_verification_required":"1","admin_approval_required":"0","auto_approve_users":"1","default_user_credits":"0.00","default_user_role":"user","password_min_length":"8","password_require_uppercase":"0","password_require_lowercase":"0","password_require_numbers":"0","password_require_symbols":"0","affiliate_program_enabled":"1","credit_per_signup":"10.00","site_name":"PhPstrap","site_url":"https:\/\/pzvt.com","theme_color":"#007bff","secondary_color":"#6c757d","site_icon":"fas fa-home"}
+2025-09-10 23:50:33 - Settings loaded. registration_enabled = '1'
+2025-09-10 23:50:33 - Starting access control checks
+2025-09-10 23:50:33 - registration_enabled value: '1' (type: string)
+2025-09-10 23:50:33 - Registration is ENABLED
+2025-09-10 23:50:33 - invite_only_mode value: '1' (type: string)
+2025-09-10 23:50:33 - Invite-only mode is ENABLED
+2025-09-10 23:50:33 - No invite code provided, denying access
+2025-09-10 23:50:33 - Final access decision: access_denied = true
+2025-09-10 23:50:33 - Access denied with message: 'Registration is currently invite-only. You need a valid invitation code to register.'
+2025-09-10 23:50:33 - REDIRECTING to login/?registration_disabled=1
