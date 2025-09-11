@@ -886,8 +886,8 @@ function renderCompletionStep() {
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <a href="login/" class="btn btn-primary btn-lg d-block">
-                            <i class="fas fa-sign-in-alt me-2"></i>Go to Login Page
+                        <a href="admin/" class="btn btn-primary btn-lg d-block">
+                            <i class="fas fa-sign-in-alt me-2"></i>Go to Dashboard
                         </a>
                     </div>
                 </div>
