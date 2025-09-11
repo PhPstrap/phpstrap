@@ -1,0 +1,56 @@
+/* Bootstrap-first admin tweaks */
+
+:root { --admin-sidebar-width: 280px; }
+
+body { background-color: var(--bs-body-bg); }
+
+.admin-sidebar {
+  width: var(--admin-sidebar-width);
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 992px) {
+  .admin-sidebar {
+    position: fixed;
+    z-index: 1040;
+    transform: translateX(-100%);
+    transition: transform .2s ease;
+  }
+  .admin-sidebar.show { transform: translateX(0); }
+}
+
+/* Group header toggle button */
+.sidebar-group + .sidebar-group { border-top: 1px solid rgba(255,255,255,.08); }
+.group-toggle {
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  border: 0;
+  padding: .75rem .5rem;
+  text-align: left;
+}
+.group-toggle:hover { background: rgba(255,255,255,.06); }
+.group-toggle .chev { transition: transform .15s ease; opacity: .8; }
+.group-toggle .chev.rot { transform: rotate(90deg); }
+
+/* Items */
+.nav-pills .nav-link {
+  border-radius: .375rem;
+  margin: 2px 6px;
+  padding: .5rem .6rem;
+}
+.nav-pills .nav-link.active {
+  color: #fff;
+  background-color: var(--bs-primary);
+}
+.nav-pills .nav-link:not(.active):hover {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+/* Content wrapper spacing */
+.admin-content { padding: 1.25rem; }
+
+/* Cards: keep close to Bootstrap defaults */
+.card-header { background: #fff; border-bottom: 1px solid rgba(0,0,0,.075); }
