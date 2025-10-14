@@ -1,0 +1,327 @@
+/**
+ * Custom styles for the page creator interface
+ */
+
+/* Template gallery styles */
+.template-gallery {
+    margin-top: 15px;
+}
+
+.template-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.template-card.border-primary {
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 5px 15px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.template-thumbnail {
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Preview container styles */
+.preview-container {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 300px;
+}
+
+/* Tab styling */
+.nav-tabs .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--bs-primary);
+    font-weight: 600;
+}
+
+.tab-pane.fade {
+    transition: opacity 0.15s linear;
+}
+
+/* Form feedback messages */
+.form-feedback {
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+}
+
+.form-feedback.valid-feedback {
+    color: #198754;
+}
+
+.form-feedback.invalid-feedback {
+    color: #dc3545;
+}
+
+/* Loading spinner overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Code editor styles */
+.code-textarea {
+    font-family: 'Courier New', monospace;
+    tab-size: 2;
+    -moz-tab-size: 2;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    color: #333;
+    resize: vertical;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    min-height: 300px;
+}
+
+/* Code/Preview section transitions */
+#codePreviewSection, 
+#templateDetailsSection, 
+#viewModeToggle, 
+#resetChangesBtn,
+#resetTemplateChanges {
+    transition: all 0.3s ease;
+}
+
+#viewModeToggle:hover, 
+#resetChangesBtn:hover,
+#resetTemplateChanges:hover {
+    background-color: #f8f9fa;
+}
+
+/* Notification styles */
+#template-notifications .alert,
+.main .alert {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    border-left-color: #198754 !important;
+}
+
+.alert-danger {
+    border-left-color: #dc3545 !important;
+}
+
+.alert-warning {
+    border-left-color: #ffc107 !important;
+}
+
+.alert-info {
+    border-left-color: #0dcaf0 !important;
+}
+
+/* Button hover effects */
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-outline-primary:active,
+.btn-outline-secondary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* AI generation status */
+#ai-generation-status {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .template-thumbnail {
+        height: 140px;
+    }
+    
+    #previewContainer, #codeContainer {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    
+    #previewContainer {
+        border-right: none !important;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    .preview-container, .code-textarea {
+        height: 300px !important;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start !important; 
+    }
+    
+    .card-header .btn-group {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Horizontal template gallery styles */
+.template-gallery-container {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.template-gallery-scrollable {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 5px;
+    margin: 0 -5px;
+    scroll-padding: 5px;
+    gap: 15px;
+    min-height: 300px;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.template-gallery-scrollable::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Template cards for horizontal scrolling */
+.template-card-wrapper {
+    flex: 0 0 auto;
+    width: 300px;
+    transition: transform 0.3s ease;
+    padding: 0 5px;
+}
+
+.template-card {
+    height: 100%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.template-card.border-primary {
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 5px 15px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.template-thumbnail {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Navigation arrows */
+.template-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.template-nav-arrow:hover {
+    opacity: 1;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.template-nav-prev {
+    left: 10px;
+}
+
+.template-nav-next {
+    right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .template-card-wrapper {
+        width: 250px;
+    }
+    
+    .template-thumbnail {
+        height: 140px;
+    }
+    
+    .template-nav-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+}
+
+@keyframes highlightMessage {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(0,123,255,0); 
+        transform: translateY(0);
+    }
+    25% { 
+        box-shadow: 0 0 20px 5px rgba(0,123,255,0.3); 
+        transform: translateY(-5px);
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(0,123,255,0); 
+        transform: translateY(0);
+    }
+}
+
+.message-highlight {
+    animation: highlightMessage 1.5s ease;
+}

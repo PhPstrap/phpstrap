@@ -1,6 +1,6 @@
 <?php
 /**
- * BootPHP Additional Functions
+ * phpStrap Additional Functions
  */
 
 // Include database configuration and get connection
@@ -20,7 +20,7 @@ try {
 
 // Additional constants for compatibility
 if (!defined('SITE_URL')) {
-    define('SITE_URL', defined('BASE_URL') ? BASE_URL : 'https://bootphp.xyz.am');
+    define('SITE_URL', defined('BASE_URL') ? BASE_URL : '');
 }
 if (!defined('THEME_COLOR')) {
     define('THEME_COLOR', '#007bff');

@@ -13,6 +13,7 @@ ini_set('log_errors', 1);
 /* ------------------------------- Includes --------------------------------- */
 require_once '../config/app.php';
 require_once '../config/database.php';
+require_once dirname(__DIR__) . '/config/version.php'; // <-- load version file from /config
 
 // Optional settings helpers (getSetting, setSetting)
 $settings_paths = ['../includes/settings.php', 'includes/settings.php'];
@@ -45,10 +46,13 @@ if (function_exists('logAdminActivity')) { try { logAdminActivity('update_access
 function h($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 function vnorm($v){ $v=trim((string)$v); return ($v!=='' && ($v[0]==='v'||$v[0]==='V'))?substr($v,1):$v; }
 function cur_version(): string {
+    // Prefer single source of truth from /config/version.php
+    if (defined('PHPSTRAP_VERSION')) return (string) PHPSTRAP_VERSION;
+    // Legacy fallbacks
     if (defined('BOOTPHP_VERSION')) return (string) BOOTPHP_VERSION;
     if (function_exists('getSetting')) {
         $v = getSetting('app_version', null);
-        if ($v) return (string)$v;
+        if ($v) return (string) $v;
     }
     return '0.0.0';
 }
@@ -59,14 +63,16 @@ $pdo = null;
 try { $pdo = getDbConnection(); $db_available = $pdo instanceof PDO; } catch (Throwable $e) {}
 
 $system_info = ['app_version' => cur_version()];
+
+// Also read DB-stored version for diagnostics (does not affect "Current")
+$db_version = null;
 try {
     if ($pdo) {
-        // Prefer settings table if present
         if (function_exists('getSetting')) {
-            $system_info['app_version'] = getSetting('app_version', $system_info['app_version']);
+            $db_version = getSetting('app_version', null);
         } else {
             $stmt = $pdo->query("SELECT value FROM settings WHERE `key`='app_version' LIMIT 1");
-            if ($v = $stmt->fetchColumn()) $system_info['app_version'] = $v;
+            if ($stmt) $db_version = $stmt->fetchColumn() ?: null;
         }
     }
 } catch (Throwable $e) {}
@@ -212,7 +218,7 @@ try {
     ];
 } catch (Throwable $e) { $errors[] = "Failed to check latest release: ".$e->getMessage(); }
 
-$cur = cur_version();
+$cur = cur_version(); // <-- now reflects /config/version.php
 $lat = isset($_SESSION['update_meta']['tag']) ? vnorm($_SESSION['update_meta']['tag']) : null;
 $updateAvailable = $lat && version_compare(vnorm($cur), $lat, '<');
 
@@ -389,6 +395,11 @@ pre.update-report{max-height:380px;overflow:auto;background:#0f172a;color:#e2e8f
             <div>
               <div class="text-body-secondary">Current</div>
               <div class="fs-4"><code><?= h($cur) ?></code></div>
+              <?php if ($db_version !== null && defined('PHPSTRAP_VERSION') && (string)$db_version !== (string)PHPSTRAP_VERSION): ?>
+                <div class="small text-warning mt-1">
+                  DB shows <?= h((string)$db_version) ?>, file shows <?= h((string)PHPSTRAP_VERSION) ?>.
+                </div>
+              <?php endif; ?>
             </div>
             <div>
               <div class="text-body-secondary">Latest</div>
