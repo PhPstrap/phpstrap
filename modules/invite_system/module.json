@@ -1,0 +1,79 @@
+{
+    "name": "invite_system",
+    "title": "Invite System Module",
+    "description": "Complete invitation system for user registration management with quota controls, usage tracking, and referral support",
+    "version": "1.0.0",
+    "required_version": "1.0.0",
+    "author": "PhPstrap Team",
+    "author_url": "https://phpstrap.com",
+    "license": "MIT",
+    "namespace": "PhPstrap\\Modules\\InviteSystem",
+    "install_path": "modules/invite_system",
+    "priority": 10,
+    "is_core": false,
+    "is_commercial": false,
+    "price": 0.00,
+    "dependencies": [],
+    "permissions": [
+        "invite_view",
+        "invite_create",
+        "invite_manage",
+        "invite_delete",
+        "invite_admin",
+        "invite_stats"
+    ],
+    "hooks": [
+        "user_registration_validate",
+        "user_registration_complete",
+        "invite_code_created",
+        "invite_code_used",
+        "invite_code_expired",
+        "daily_cleanup",
+        "admin_menu_render",
+        "user_menu_render"
+    ],
+    "settings": {
+        "enabled": true,
+        "invite_only_mode": false,
+        "invites_per_week": 1,
+        "invite_expiry_days": 30,
+        "invite_auto_approve": true,
+        "invite_max_uses": 1,
+        "invite_allow_user_creation": true,
+        "invite_admin_only": false,
+        "verification_bonus_credits": "5.00",
+        "auto_login_after_verification": false,
+        "verification_token_expiry": 24,
+        "verification_resend_rate_limit": 300,
+        "cleanup_expired_automatically": true,
+        "log_invite_usage": true,
+        "show_invite_stats": true
+    },
+    "shortcodes": [
+        "invite_form",
+        "invite_stats",
+        "user_invites"
+    ],
+    "admin_pages": [
+        {
+            "slug": "invite_management",
+            "title": "Invite Management",
+            "capability": "invite_admin"
+        },
+        {
+            "slug": "invite_statistics", 
+            "title": "Invite Statistics",
+            "capability": "invite_stats"
+        }
+    ],
+    "tags": ["invites", "registration", "referrals", "user-management", "quotas", "tracking"],
+    "screenshots": [
+        "assets/screenshot-admin-dashboard.png",
+        "assets/screenshot-user-interface.png",
+        "assets/screenshot-invite-creation.png",
+        "assets/screenshot-statistics.png"
+    ],
+    "documentation_url": "https://docs.phpstrap.com/modules/invite-system",
+    "support_url": "https://phpstrap.com/support",
+    "changelog": "1.0.0 - Initial release with complete invite system, user quotas, admin management, usage tracking, and registration integration"
+}

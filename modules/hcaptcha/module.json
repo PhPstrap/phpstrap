@@ -1,0 +1,27 @@
+{
+    "name": "hcaptcha",
+    "title": "hCaptcha Protection",
+    "description": "Add spam protection to forms using hCaptcha service",
+    "version": "1.0.0",
+    "settings": {
+        "site_key": "",
+        "secret_key": "",
+        "enabled": false,
+        "theme": "light",
+        "size": "normal"
+    },
+    "hooks": {
+        "form_captcha": [
+            {
+                "method": "renderCaptcha",
+                "priority": 10
+            }
+        ],
+        "form_validate": [
+            {
+                "method": "validateCaptcha",
+                "priority": 10
+            }
+        ]
+    }
+}

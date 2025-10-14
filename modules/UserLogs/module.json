@@ -1,0 +1,49 @@
+{
+    "name": "userlogs",
+    "title": "User Logs Module",
+    "description": "Logs user activity (login, logout, profile updates, etc.) and provides an admin UI to review logs.",
+    "version": "1.0.0",
+    "required_version": "1.0.0",
+    "author": "Your Name",
+    "author_url": "https://yourwebsite.com",
+    "license": "MIT",
+    "namespace": "phpStrap\\Modules\\UserLogs",
+    "install_path": "modules/userlogs",
+    "priority": 5,
+    "is_core": false,
+    "is_commercial": false,
+    "price": 0.00,
+    "dependencies": [],
+    "permissions": [
+        "userlogs_view",
+        "userlogs_admin"
+    ],
+    "hooks": [
+        "user_login",
+        "user_logout",
+        "user_register",
+        "user_profile_update",
+        "user_password_change"
+    ],
+    "settings": {
+        "enabled": true,
+        "retention_days": 90,
+        "log_user_agent": true,
+        "log_ip": true
+    },
+    "admin_pages": [
+        {
+            "slug": "userlogs_view",
+            "title": "User Logs",
+            "capability": "userlogs_admin"
+        }
+    ],
+    "tags": ["users", "logs", "audit", "monitoring"],
+    "screenshots": [
+        "assets/screenshot-logs.png",
+        "assets/screenshot-settings.png"
+    ],
+    "documentation_url": "https://yourwebsite.com/docs/userlogs",
+    "support_url": "https://yourwebsite.com/support",
+    "changelog": "1.0.0 - Initial release with logging of user events and admin log viewer"
+}

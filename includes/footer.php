@@ -10,7 +10,7 @@
 </footer>
 
 <!-- Bootstrap JS -->
-<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <?php include __DIR__ . '/footer-scripts.php'; ?>
 </body>
 </html>

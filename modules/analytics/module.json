@@ -1,0 +1,27 @@
+{
+    "name": "analytics",
+    "title": "Analytics Tracking",
+    "description": "Google Analytics and Facebook Pixel integration",
+    "version": "1.0.0",
+    "settings": {
+        "enabled": false,
+        "google_analytics_id": "",
+        "facebook_pixel_id": "",
+        "google_tag_manager_id": "",
+        "track_user_id": false
+    },
+    "hooks": {
+        "html_head": [
+            {
+                "method": "renderHeadTags",
+                "priority": 10
+            }
+        ],
+        "html_body": [
+            {
+                "method": "renderBodyTags",
+                "priority": 10
+            }
+        ]
+    }
+}
