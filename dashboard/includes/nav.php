@@ -26,12 +26,27 @@ if ((!array_key_exists('affiliate_program_enabled', $settings) || !array_key_exi
     }
 }
 
+/** Also hydrate LexBoard feature flag (off by default unless set or user is admin) */
+if (!array_key_exists('lexboard_enabled', $settings) && function_exists('getSetting')) {
+    $settings['lexboard_enabled'] = getSetting('lexboard_enabled', '0');
+}
+
 // Current page resolver (fallback)
 $currentPage = $currentPage ?? (function () {
     $path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
     $last = strtolower(basename($path));
+    $key  = preg_replace('/\.php$/i', '', $last);
+
     if ($last === '' || $last === 'dashboard' || $last === 'index.php') return 'overview';
-    return preg_replace('/\.php$/i', '', $last);
+
+    // Map LexBoard filenames to nav keys
+    $map = [
+        'lexboard_upload'  => 'lex_upload',
+        'lexboard_cases'   => 'lex_cases',
+        'lexboard_firms'   => 'lex_firms',
+        'lexboard_lawyers' => 'lex_lawyers',
+    ];
+    return $map[$key] ?? $key;
 })();
 
 // Base items
@@ -46,6 +61,17 @@ if (setting_on($settings, 'affiliate_program_enabled')) {
 }
 if (setting_on($settings, 'api_enabled')) {
     $items[] = ['key' => 'api',       'title' => 'API Access','icon' => 'bi-code-slash',  'href' => 'api.php'];
+}
+
+/** LexBoard items (feature-gated OR admin) */
+if (setting_on($settings, 'lexboard_enabled') || !empty($user['is_admin'])) {
+    $items = array_merge($items, [
+        ['key' => 'lex_upload',  'title' => 'LexBoard Upload',  'icon' => 'bi-file-earmark-arrow-up', 'href' => 'lexboard_upload.php'],
+        ['key' => 'lex_cases',   'title' => 'LexBoard Cases',   'icon' => 'bi-journal-text',          'href' => 'lexboard_cases.php'],
+        ['key' => 'lex_firms',   'title' => 'LexBoard Firms',   'icon' => 'bi-building',               'href' => 'lexboard_firms.php'],
+        ['key' => 'lex_lawyers', 'title' => 'LexBoard Lawyers', 'icon' => 'bi-people',                 'href' => 'lexboard_lawyers.php'],
+        ['key' => 'divider'],
+    ]);
 }
 
 // Always-visible items
