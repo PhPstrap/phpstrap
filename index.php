@@ -1,135 +1,178 @@
 <?php
-$pageTitle = 'PhPstrap Membership - Secure, Sustainable & Modular';
-$metaDescription = 'Build modern, secure membership sites with our open-source PHP framework. Featuring modular design and sustainable collaboration.';
-$metaKeywords = 'PhPstrap, PHP membership, secure, open source, Bootstrap 5, modular design';
+$pageTitle = 'LexBoard – AI Legal Outcomes & Lawyer Metrics (Canada)';
+$metaDescription = 'LexBoard uses public court decisions to surface data-driven insights about case outcomes and counsel performance. Start in Ontario; more provinces and territories coming soon.';
+$metaKeywords = 'LexBoard, LexRank, lawyer rankings, win rate, case outcomes, Ontario, Canada, legal analytics, Bootstrap 5, PhPstrap';
 include __DIR__ . '/includes/header.php';
 ?>
 
+<style>
+  /* Subtle, accessible greying for regions not yet available */
+  .region-disabled {
+    opacity: .55;
+    pointer-events: none;
+    filter: grayscale(30%);
+  }
+  .region-card:hover { transform: translateY(-2px); }
+  .kb-badge {
+    font-size: .8rem;
+    letter-spacing: .02em;
+  }
+  .search-hero {
+    background: radial-gradient(1200px 600px at 50% -10%, rgba(13,110,253,.08), transparent 60%),
+                linear-gradient(135deg, var(--bs-body-bg) 0%, var(--bs-body-bg) 60%);
+    border: 1px solid var(--bs-border-color);
+  }
+</style>
+
 <main class="container py-5">
 
-    <!-- Hero Section -->
-    <section class="text-center py-5 mb-5 rounded-3" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-        <div class="row py-lg-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <h1 class="display-4 fw-bold mb-4">Build Secure Membership Sites</h1>
-                <p class="lead mb-4">PhPstrap combines <span class="text-primary fw-bold">security</span>, <span class="text-success fw-bold">sustainability</span>, and <span class="text-info fw-bold">modularity</span> in an open-source PHP framework.</p>
-                <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
-                    <a href="/login/register.php" class="btn btn-primary btn-lg px-4">Get Started</a>
-                    <a href="#features" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
-                </div>
-            </div>
+  <!-- Hero / Search -->
+  <section class="search-hero rounded-4 p-4 p-md-5 mb-5 shadow-sm">
+    <div class="row justify-content-center">
+      <div class="col-xl-9 col-lg-10">
+        <div class="text-center mb-4">
+          <span class="badge text-bg-success kb-badge me-2">Ontario • Live</span>
+          <span class="badge text-bg-secondary kb-badge">Other provinces • Soon</span>
         </div>
-    </section>
+        <h1 class="display-5 fw-bold text-center mb-3">Legal outcomes, quantified.</h1>
+        <p class="lead text-center text-secondary mb-4">
+          Search Canadian decisions to power AI-based outcome metrics for lawyers and firms.<br class="d-none d-md-inline">
+          Start with Ontario; more jurisdictions coming soon.
+        </p>
 
-    <!-- Value Propositions -->
-    <div class="row mb-5">
-        <div class="col-md-4 text-center mb-4">
-            <div class="p-4 bg-white rounded-3 shadow-sm h-100">
-                <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
-                    <i class="fas fa-shield-alt fa-2x text-primary"></i>
-                </div>
-                <h3 class="h4">Secure & Open Source</h3>
-                <p>Transparent security architecture with community-reviewed code. Regular updates and vulnerability patching.</p>
-            </div>
+        <!-- Placeholder search (wire up later) -->
+        <form class="d-flex gap-2 flex-column flex-md-row" role="search" action="/search.php" method="get">
+          <div class="input-group input-group-lg">
+            <span class="input-group-text bg-transparent" id="lex-search-addon" aria-hidden="true">
+              <i class="fas fa-magnifying-glass"></i>
+            </span>
+            <input
+              type="search"
+              name="q"
+              class="form-control"
+              placeholder="Try: “appeal dismissed” OR counsel name"
+              aria-label="Search decisions, lawyers, or firms"
+              aria-describedby="lex-search-addon"
+              required
+            >
+            <button class="btn btn-primary px-4" type="submit" disabled title="Search coming soon">
+              Search
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center mt-3">
+          <small class="text-muted">
+            Placeholder search is disabled until the database is configured.
+          </small>
         </div>
-        
-        <div class="col-md-4 text-center mb-4">
-            <div class="p-4 bg-white rounded-3 shadow-sm h-100">
-                <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
-                    <i class="fas fa-users fa-2x text-success"></i>
-                </div>
-                <h3 class="h4">Sustain & Maintain</h3>
-                <p>Open collaboration model ensures long-term sustainability with community-driven maintenance and improvements.</p>
-            </div>
-        </div>
-        
-        <div class="col-md-4 text-center mb-4">
-            <div class="p-4 bg-white rounded-3 shadow-sm h-100">
-                <div class="bg-info bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
-                    <i class="fas fa-cubes fa-2x text-info"></i>
-                </div>
-                <h3 class="h4">Modular & Extensible</h3>
-                <p>Flexible plugin system with seamless integrations. Build custom functionality with our modular add-ons.</p>
-            </div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Provinces & Territories Grid -->
+  <section aria-labelledby="regions-heading" class="mb-5">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <h2 id="regions-heading" class="h4 mb-0 fw-bold">Provinces & Territories</h2>
+      <span class="text-muted small">Ontario is active; others are preview-only.</span>
     </div>
 
-    <!-- Features Section -->
-    <section id="features" class="mb-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Powerful Features</h2>
-            <p class="lead text-muted">Everything you need to build and manage your membership platform</p>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="d-flex">
-                    <div class="me-4">
-                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
-                            <i class="fas fa-user-lock fa-lg text-primary"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Secure Authentication</h4>
-                        <p>Industry-standard encryption, secure session management, and protection against common vulnerabilities.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="d-flex">
-                    <div class="me-4">
-                        <div class="bg-success bg-opacity-10 p-3 rounded-circle">
-                            <i class="fas fa-code-branch fa-lg text-success"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Open Collaboration</h4>
-                        <p>Community-driven development with transparent processes and contribution guidelines.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="d-flex">
-                    <div class="me-4">
-                        <div class="bg-info bg-opacity-10 p-3 rounded-circle">
-                            <i class="fas fa-puzzle-piece fa-lg text-info"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Modular Architecture</h4>
-                        <p>Add or remove features with our plugin system. Create custom modules tailored to your needs.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="d-flex">
-                    <div class="me-4">
-                        <div class="bg-warning bg-opacity-10 p-3 rounded-circle">
-                            <i class="fas fa-tools fa-lg text-warning"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Easy Customization</h4>
-                        <p>Flexible theming system with Bootstrap 5 foundation. Modify layouts and styles without breaking functionality.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php
+      // Regions list with Ontario enabled
+      $regions = [
+        ['name'=>'Ontario','abbr'=>'ON','path'=>'/on/','enabled'=>true],
+        ['name'=>'Alberta','abbr'=>'AB','path'=>null,'enabled'=>false],
+        ['name'=>'British Columbia','abbr'=>'BC','path'=>null,'enabled'=>false],
+        ['name'=>'Manitoba','abbr'=>'MB','path'=>null,'enabled'=>false],
+        ['name'=>'New Brunswick','abbr'=>'NB','path'=>null,'enabled'=>false],
+        ['name'=>'Newfoundland and Labrador','abbr'=>'NL','path'=>null,'enabled'=>false],
+        ['name'=>'Nova Scotia','abbr'=>'NS','path'=>null,'enabled'=>false],
+        ['name'=>'Prince Edward Island','abbr'=>'PE','path'=>null,'enabled'=>false],
+        ['name'=>'Quebec','abbr'=>'QC','path'=>null,'enabled'=>false],
+        ['name'=>'Saskatchewan','abbr'=>'SK','path'=>null,'enabled'=>false],
+        ['name'=>'Northwest Territories','abbr'=>'NT','path'=>null,'enabled'=>false],
+        ['name'=>'Nunavut','abbr'=>'NU','path'=>null,'enabled'=>false],
+        ['name'=>'Yukon','abbr'=>'YT','path'=>null,'enabled'=>false],
+      ];
+    ?>
 
-    <!-- CTA Section -->
-    <section class="text-center py-5 mt-5 bg-light rounded-3">
-        <h2 class="fw-bold mb-3">Ready to Get Started?</h2>
-        <p class="lead mb-4">Join our community of developers building secure, sustainable membership platforms</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="/login/register.php" class="btn btn-success btn-lg px-4">Create Free Account</a>
-            <a href="#" class="btn btn-outline-dark btn-lg px-4">View Documentation</a>
-            <a href="#" class="btn btn-outline-primary btn-lg px-4">GitHub Repository</a>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+      <?php foreach ($regions as $r): ?>
+        <div class="col">
+          <?php if ($r['enabled'] && $r['path']): ?>
+            <a class="text-decoration-none" href="<?= htmlspecialchars($r['path']) ?>" aria-label="<?= htmlspecialchars($r['name']) ?> (active)">
+              <div class="region-card card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="h5 mb-1"><?= htmlspecialchars($r['name']) ?></h3>
+                    <span class="badge text-bg-primary"><?= htmlspecialchars($r['abbr']) ?></span>
+                  </div>
+                  <p class="text-secondary mb-0 small">Explore courts, decisions, and counsel metrics</p>
+                </div>
+              </div>
+            </a>
+          <?php else: ?>
+            <div class="region-card card h-100 border-0 shadow-sm region-disabled" aria-disabled="true">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h3 class="h5 mb-1"><?= htmlspecialchars($r['name']) ?></h3>
+                  <span class="badge text-bg-secondary"><?= htmlspecialchars($r['abbr']) ?></span>
+                </div>
+                <p class="text-secondary mb-1 small">Coming soon</p>
+                <span class="badge text-bg-light text-muted">Preview</span>
+              </div>
+            </div>
+          <?php endif; ?>
         </div>
-    </section>
+      <?php endforeach; ?>
+    </div>
+  </section>
+
+  <!-- Ontario Quick Links (optional helpful starting points) -->
+  <section aria-labelledby="on-links" class="mb-5">
+    <h2 id="on-links" class="h4 fw-bold mb-3">Ontario – Quick Start</h2>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 mb-2"><i class="fas fa-scale-balanced me-2 text-primary"></i>Ontario Superior Court (ONSC)</h3>
+            <p class="text-secondary small mb-3">Trials, motions, applications, estates list, etc.</p>
+            <a class="btn btn-sm btn-outline-primary" href="/on/onsc/">View ONSC</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 mb-2"><i class="fas fa-gavel me-2 text-primary"></i>Court of Appeal (ONCA)</h3>
+            <p class="text-secondary small mb-3">Appeal outcomes: allowed, dismissed, varied.</p>
+            <a class="btn btn-sm btn-outline-primary" href="/on/onca/">View ONCA</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 mb-2"><i class="fas fa-briefcase me-2 text-primary"></i>By Counsel / Firm</h3>
+            <p class="text-secondary small mb-3">Browse matters by counsel name or firm (beta).</p>
+            <a class="btn btn-sm btn-outline-primary disabled" aria-disabled="true" href="#">Coming soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA: What is LexBoard -->
+  <section class="text-center py-5 bg-light rounded-4 border">
+    <h2 class="fw-bold mb-2">What is LexBoard?</h2>
+    <p class="lead text-secondary mb-4">
+      A neutral, data-driven layer on top of public decisions to help people understand outcomes and performance—fairly and transparently.
+    </p>
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <a href="/about/" class="btn btn-outline-dark">Learn More</a>
+      <a href="/contact/" class="btn btn-primary">Contact</a>
+    </div>
+  </section>
 
 </main>
 
