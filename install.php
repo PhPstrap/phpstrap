@@ -5,6 +5,7 @@
  * This is the main installer file that orchestrates the complete installation process
  * Save as: install.php (in your website root)
  * 
+ * Version: 0.1.7
  * Author: PhPstrap Team
  */
 
@@ -12,8 +13,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('log_errors', 1);
-
-require_once __DIR__ . '/config/version.php';
 
 // Start session for installation data
 session_start();
